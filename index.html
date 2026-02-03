@@ -10,16 +10,43 @@
       color: #222;
       margin: 0;
       padding: 0;
+    }
+
+    /* ===== Navigation Bar ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #ffffffcc; /* semi-transparent for soft aesthetic */
+      display: flex;
+      justify-content: center;
+      padding: 1% 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #222;
+      font-weight: bold;
+      transition: color 0.3s, border-bottom 0.3s;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+    }
+
+    nav a:hover {
+      color: #1a73e8;
+      border-bottom: 2px solid #1a73e8;
+    }
+
+    /* ===== Page Content ===== */
+    .content {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-    }
-
-    .profile {
-      margin-top: 5%;
-      text-align: center;
+      margin-top: 100px; /* space for fixed nav bar */
+      padding: 20px;
     }
 
     .profile img {
@@ -32,34 +59,49 @@
       max-width: 600px;
       margin-top: 2%;
       line-height: 1.5;
+      text-align: center;
     }
 
     .contact {
       margin-top: 3%;
+      text-align: center;
     }
 
-    a {
+    a.contact-link {
       color: #1a73e8;
-      text-decoration: none;
     }
 
-    a:hover {
+    a.contact-link:hover {
       text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="profile">
-    <img src="MRK_2501.jpg" alt="ENH Headshot">
-    <h1>Evan Nelles Henderson</h1>
-  </div>
 
-  <div class="bio">
-    <p>This is the personal website of Evan Nelles Henderson! This website is currently under construction so please check back again later.</p>
-  </div>
+  <!-- ===== Navigation Bar ===== -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#news">News</a>
+    <a href="#publications">Publications</a>
+    <a href="#cv">CV</a>
+    <a href="#contact">Contact</a>
+    <a href="#search">🔍</a>
+  </nav>
 
-  <div class="contact">
-    <p>Reach out to me at <a href="mailto:titan1024@outlook.com">titan1024@outlook.com</a></p>
+  <!-- ===== Page Content ===== -->
+  <div class="content" id="home">
+    <div class="profile">
+      <img src="pizzacat_profile.png" alt="A cartoon illustration of a white cat's face next to a pizza slice.">
+      <h1>Evan Nelles Henderson</h1>
+    </div>
+
+    <div class="bio">
+      <p>This is the personal website of Evan Nelles Henderson! This website is currently under construction so please check back again later.</p>
+    </div>
+
+    <div class="contact" id="contact">
+      <p>Reach out to me at <a class="contact-link" href="mailto:titan1024@outlook.com">titan1024@outlook.com</a></p>
+    </div>
   </div>
 </body>
 </html>
