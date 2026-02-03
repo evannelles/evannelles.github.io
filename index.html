@@ -10,6 +10,7 @@
       color: #222;
       margin: 0;
       padding: 0;
+      scroll-behavior: smooth; /* smooth scrolling */
     }
 
     /* ===== Navigation Bar ===== */
@@ -17,7 +18,7 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background-color: #ffffffcc; /* semi-transparent for soft aesthetic */
+      background-color: #ffffffcc;
       display: flex;
       justify-content: center;
       padding: 1% 0;
@@ -40,38 +41,49 @@
       border-bottom: 2px solid #1a73e8;
     }
 
-    /* ===== Page Content ===== */
-    .content {
+    /* ===== Sections ===== */
+    section {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 100px; /* space for fixed nav bar */
-      padding: 20px;
+      justify-content: center;
+      min-height: 100vh; /* full viewport height */
+      padding: 50px 20px;
+      text-align: center;
     }
 
+    /* Alternating subtle background colors */
+    #home { background-color: #fefefe; }
+    #news { background-color: #f8f8f8; }
+    #publications { background-color: #fefefe; }
+    #cv { background-color: #f8f8f8; }
+    #contact { background-color: #fefefe; }
+    #search { background-color: #f8f8f8; }
+
+    /* ===== Profile Section ===== */
     .profile img {
       width: 200px;
       border-radius: 50%;
+      display: block;
+      margin-bottom: 15px;
+    }
+
+    .profile h1 {
+      font-size: 2em;
+      margin: 0;
     }
 
     .bio {
-      width: 60%;
       max-width: 600px;
-      margin-top: 2%;
+      margin-top: 20px;
       line-height: 1.5;
-      text-align: center;
     }
 
-    .contact {
-      margin-top: 3%;
-      text-align: center;
-    }
-
-    a.contact-link {
+    .contact a {
       color: #1a73e8;
     }
 
-    a.contact-link:hover {
+    .contact a:hover {
       text-decoration: underline;
     }
   </style>
@@ -88,20 +100,41 @@
     <a href="#search">🔍</a>
   </nav>
 
-  <!-- ===== Page Content ===== -->
-  <div class="content" id="home">
+  <!-- ===== Page Sections ===== -->
+  <section id="home">
     <div class="profile">
       <img src="MRK_2501.jpg" alt="Headshot">
       <h1>Evan Nelles Henderson</h1>
+      <div class="bio">
+        <p>This is the personal website of Evan Nelles Henderson! This website is currently under construction, so please check back again later.</p>
+      </div>
     </div>
+  </section>
 
-    <div class="bio">
-      <p>This is the personal website of Evan Nelles Henderson! This website is currently under construction so please check back again later.</p>
-    </div>
+  <section id="news">
+    <h2>News</h2>
+    <p>Updates and announcements coming soon!</p>
+  </section>
 
-    <div class="contact" id="contact">
-      <p>Reach out to me at <a class="contact-link" href="mailto:titan1024@outlook.com">titan1024@outlook.com</a></p>
-    </div>
-  </div>
+  <section id="publications">
+    <h2>Publications</h2>
+    <p>List of papers and work coming soon!</p>
+  </section>
+
+  <section id="cv">
+    <h2>CV</h2>
+    <p>Downloadable CV will appear here.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Reach out to me at <a href="mailto:titan1024@outlook.com">titan1024@outlook.com</a></p>
+  </section>
+
+  <section id="search">
+    <h2>Search</h2>
+    <p>Search functionality coming soon!</p>
+  </section>
+
 </body>
 </html>
