@@ -1,13 +1,65 @@
-<html>
-<style>
-  p {width:30%;font:Courier;padding-top:2%;}
-</style>
-<body>
-<center>
-  <img src='pizzacat_profile.png' width='20%' alt='A cartoon illustration of a white cat's face next to a pizza slice.'/>
-  <p>This is the personal website of Evan Nelles Henderson!  This website is currently under construction so please check back again later.</p>
-  <p>Please reach out to me at titan1024@outlook.com</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Evan Nelles Henderson</title>
+  <style>
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #fefefe;
+      color: #222;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
 
-</center>
+    .profile {
+      margin-top: 5%;
+      text-align: center;
+    }
+
+    .profile img {
+      width: 200px;
+      border-radius: 50%;
+    }
+
+    .bio {
+      width: 60%;
+      max-width: 600px;
+      margin-top: 2%;
+      line-height: 1.5;
+    }
+
+    .contact {
+      margin-top: 3%;
+    }
+
+    a {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="profile">
+    <img src="pizzacat_profile.png" alt="A cartoon illustration of a white cat's face next to a pizza slice.">
+    <h1>Evan Nelles Henderson</h1>
+  </div>
+
+  <div class="bio">
+    <p>This is the personal website of Evan Nelles Henderson! This website is currently under construction so please check back again later.</p>
+  </div>
+
+  <div class="contact">
+    <p>Reach out to me at <a href="mailto:titan1024@outlook.com">titan1024@outlook.com</a></p>
+  </div>
 </body>
 </html>
