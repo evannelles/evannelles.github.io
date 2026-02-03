@@ -10,7 +10,7 @@
       color: #222;
       margin: 0;
       padding: 0;
-      scroll-behavior: smooth; /* smooth scrolling */
+      scroll-behavior: smooth;
     }
 
     /* ===== Navigation Bar ===== */
@@ -47,9 +47,20 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh; /* full viewport height */
+      min-height: 100vh;
       padding: 50px 20px;
       text-align: center;
+
+      /* Fade-in starting state */
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    /* When section is visible */
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* Alternating subtle background colors */
@@ -61,14 +72,20 @@
     #search { background-color: #f8f8f8; }
 
     /* ===== Profile Section ===== */
-    .profile img {
+    .profile-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .profile-container img {
       width: 200px;
       border-radius: 50%;
       display: block;
       margin-bottom: 15px;
     }
 
-    .profile h1 {
+    .profile-container h1 {
       font-size: 2em;
       margin: 0;
     }
@@ -102,7 +119,7 @@
 
   <!-- ===== Page Sections ===== -->
   <section id="home">
-    <div class="profile">
+    <div class="profile-container">
       <img src="MRK_2501.jpg" alt="Headshot">
       <h1>Evan Nelles Henderson</h1>
       <div class="bio">
@@ -135,6 +152,23 @@
     <h2>Search</h2>
     <p>Search functionality coming soon!</p>
   </section>
+
+  <!-- ===== Scroll Animation Script ===== -->
+  <script>
+    const sections = document.querySelectorAll('section');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 }); // 20% visible triggers animation
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 
 </body>
 </html>
