@@ -89,17 +89,11 @@
 
     /* Alternating subtle background colors */
     #home { background-color: var(--bg-color); }
-    #news { background-color: #f8f8f8; }
+    #news { background-color: #1a1a1a; }
     #publications { background-color: var(--bg-color); }
-    #cv { background-color: #f8f8f8; }
+    #cv { background-color: #1a1a1a; }
     #contact { background-color: var(--bg-color); }
-    #search { background-color: #f8f8f8; }
-
-    body.dark-theme #news,
-    body.dark-theme #cv,
-    body.dark-theme #search {
-      background-color: #1a1a1a;
-    }
+    #search { background-color: #1a1a1a; }
 
     /* ===== Profile Section ===== */
     .profile-container {
@@ -135,7 +129,7 @@
     }
   </style>
 </head>
-<body>
+<body class="dark-theme"> <!-- Dark mode default -->
 
   <!-- ===== Navigation Bar ===== -->
   <nav>
@@ -145,7 +139,7 @@
     <a href="#cv">CV</a>
     <a href="#contact">Contact</a>
     <a href="#search">🔍</a>
-    <button id="theme-toggle">🌙</button>
+    <button id="theme-toggle">☀️</button> <!-- Shows sun icon because default is dark -->
   </nav>
 
   <!-- ===== Page Sections ===== -->
