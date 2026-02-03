@@ -69,14 +69,14 @@
 
     /* ===== Hyperlink Styles (High-Contrast Blue) ===== */
     a {
-      color: #4aa3ff; /* brighter blue for dark background */
+      color: #4aa3ff;
       text-decoration: none;
       transition: color 0.3s, text-shadow 0.3s;
     }
 
     a:hover {
-      color: #66c0ff; /* lighter blue */
-      text-shadow: 0 0 5px #66c0ff; /* subtle glow */
+      color: #66c0ff;
+      text-shadow: 0 0 5px #66c0ff;
       text-decoration: underline;
     }
 
@@ -118,33 +118,74 @@
     #contact { background-color: var(--bg-color); }
     #search { background-color: #1a1a1a; }
 
-    /* ===== Profile Section ===== */
-    .profile-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    body.dark-theme #news,
+    body.dark-theme #cv,
+    body.dark-theme #search {
+      background-color: #1a1a1a;
     }
 
-    .profile-container img {
+    /* ===== Home Header Two-Column Layout ===== */
+    .home-header {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      max-width: 1000px;
+      width: 90%;
+      margin: 0 auto;
+      gap: 50px;
+    }
+
+    .home-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .home-left img {
       width: 200px;
       border-radius: 50%;
-      display: block;
       margin-bottom: 15px;
     }
 
-    .profile-container h1 {
-      font-size: 2em;
+    .home-left h1 {
       margin: 0;
+      font-size: 2em;
     }
 
-    .bio {
-      max-width: 600px;
-      margin-top: 20px;
+    .home-left .position,
+    .home-left .institution {
+      margin: 2px 0;
+      font-size: 1em;
+      color: #aaa;
+    }
+
+    .home-right {
+      flex: 1;
+      font-size: 1.1em;
       line-height: 1.5;
+    }
+
+    /* Responsive for smaller screens */
+    @media (max-width: 768px) {
+      .home-header {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .home-left {
+        align-items: center;
+        text-align: center;
+      }
+
+      .home-right {
+        text-align: center;
+        margin-top: 20px;
+      }
     }
   </style>
 </head>
-<body class="dark-theme"> <!-- Dark mode default -->
+<body class="dark-theme">
 
   <!-- ===== Navigation Bar ===== -->
   <nav>
@@ -158,12 +199,21 @@
   </nav>
 
   <!-- ===== Page Sections ===== -->
+
+  <!-- Home Section -->
   <section id="home">
-    <div class="profile-container">
-      <img src="MRK_2501.jpg" alt="Headshot">
-      <h1>Evan Nelles Henderson</h1>
-      <div class="bio">
-        <p>This is the personal website of Evan Nelles Henderson! This website is currently under construction, so please check back again later.</p>
+    <div class="home-header">
+      <!-- Left Column -->
+      <div class="home-left">
+        <img src="MRK_2501.jpg" alt="Headshot">
+        <h1>Evan Nelles Henderson</h1>
+        <p class="position">MSc Student - Physics & Astronomy (Astrobiology)</p>
+        <p class="institution">McMaster University</p>
+      </div>
+
+      <!-- Right Column -->
+      <div class="home-right">
+        <p>Hello! I am a masters student at McMaster University in Hamilton, Canada. I study exoplanets, mantle-atmosphere coupling, and the origins of life. My research is supervised by Dr. Ralph Pudritz.</p>
       </div>
     </div>
   </section>
