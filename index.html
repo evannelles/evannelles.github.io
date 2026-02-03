@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Evan Nelles Henderson</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <style>
     /* ===== CSS Variables for Light/Dark Theme ===== */
     :root {
@@ -18,7 +20,9 @@
     }
 
     body {
-      font-family: 'Courier New', Courier, monospace;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.05em;
+      font-weight: 500;
       background-color: var(--bg-color);
       color: var(--text-color);
       margin: 0;
@@ -46,7 +50,7 @@
       margin: 0 15px;
       text-decoration: none;
       color: var(--text-color);
-      font-weight: bold;
+      font-weight: 600;
       transition: color 0.3s, border-bottom 0.3s;
       padding-bottom: 2px;
       border-bottom: 2px solid transparent;
@@ -140,6 +144,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      font-family: 'Fira Mono', monospace;
     }
 
     .home-left img {
@@ -151,22 +156,25 @@
     .home-left h1 {
       margin: 0;
       font-size: 2em;
+      font-weight: 700;
     }
 
     /* ===== Updated position/institution styling ===== */
     .home-left .position,
     .home-left .institution {
       margin: 4px 0;
-      font-size: 1.1em;
+      font-size: 1.2em;
       line-height: 1.4;
+      font-weight: 600;
       color: var(--text-color);
-      opacity: 0.8;  /* slightly lighter than main text for subtlety */
+      opacity: 0.85;  /* slightly lighter than main text for subtlety */
     }
 
     .home-right {
       flex: 1;
-      font-size: 1.1em;
-      line-height: 1.5;
+      font-size: 1.15em;
+      line-height: 1.6;
+      text-align: left;
     }
 
     /* Responsive for smaller screens */
