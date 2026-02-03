@@ -53,8 +53,8 @@
     }
 
     nav a:hover {
-      color: #1a73e8;
-      border-bottom: 2px solid #1a73e8;
+      color: #66c0ff;
+      border-bottom: 2px solid #66c0ff;
     }
 
     nav button {
@@ -65,6 +65,29 @@
       cursor: pointer;
       color: var(--text-color);
       transition: color 0.3s;
+    }
+
+    /* ===== Hyperlink Styles (High-Contrast Blue) ===== */
+    a {
+      color: #4aa3ff; /* brighter blue for dark background */
+      text-decoration: none;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
+
+    a:hover {
+      color: #66c0ff; /* lighter blue */
+      text-shadow: 0 0 5px #66c0ff; /* subtle glow */
+      text-decoration: underline;
+    }
+
+    .contact a {
+      color: #4aa3ff;
+    }
+
+    .contact a:hover {
+      color: #66c0ff;
+      text-shadow: 0 0 5px #66c0ff;
+      text-decoration: underline;
     }
 
     /* ===== Sections ===== */
@@ -119,14 +142,6 @@
       margin-top: 20px;
       line-height: 1.5;
     }
-
-    .contact a {
-      color: #1a73e8;
-    }
-
-    .contact a:hover {
-      text-decoration: underline;
-    }
   </style>
 </head>
 <body class="dark-theme"> <!-- Dark mode default -->
@@ -139,7 +154,7 @@
     <a href="#cv">CV</a>
     <a href="#contact">Contact</a>
     <a href="#search">🔍</a>
-    <button id="theme-toggle">☀️</button> <!-- Shows sun icon because default is dark -->
+    <button id="theme-toggle">☀️</button>
   </nav>
 
   <!-- ===== Page Sections ===== -->
@@ -170,7 +185,7 @@
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>Reach out to me at <a href="mailto:hendee7@mcmaster.ca">hendee7@mcmaster.ca</a></p>
+    <p>Reach out to me at <a href="mailto:titan1024@outlook.com">titan1024@outlook.com</a></p>
   </section>
 
   <section id="search">
