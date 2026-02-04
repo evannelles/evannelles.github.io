@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Evan Nelles Henderson</title>
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
   <style>
-    /* ===== CSS Variables for Light/Dark Theme ===== */
     :root {
       --bg-color: #fefefe;
       --text-color: #222;
@@ -31,7 +32,7 @@
       transition: background-color 0.5s, color 0.5s;
     }
 
-    /* ===== Navigation Bar ===== */
+    /* ===== Navigation ===== */
     nav {
       position: fixed;
       top: 0;
@@ -43,7 +44,6 @@
       padding: 1% 0;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       z-index: 1000;
-      transition: background-color 0.5s;
     }
 
     nav a {
@@ -51,8 +51,6 @@
       text-decoration: none;
       color: var(--text-color);
       font-weight: 600;
-      transition: color 0.3s, border-bottom 0.3s;
-      padding-bottom: 2px;
       border-bottom: 2px solid transparent;
     }
 
@@ -68,45 +66,20 @@
       margin-left: 15px;
       cursor: pointer;
       color: var(--text-color);
-      transition: color 0.3s;
-    }
-
-    /* ===== Hyperlink Styles (High-Contrast Blue) ===== */
-    a {
-      color: #4aa3ff;
-      text-decoration: none;
-      transition: color 0.3s, text-shadow 0.3s;
-    }
-
-    a:hover {
-      color: #66c0ff;
-      text-shadow: 0 0 5px #66c0ff;
-      text-decoration: underline;
-    }
-
-    .contact a {
-      color: #4aa3ff;
-    }
-
-    .contact a:hover {
-      color: #66c0ff;
-      text-shadow: 0 0 5px #66c0ff;
-      text-decoration: underline;
     }
 
     /* ===== Sections ===== */
     section {
+      min-height: 100vh;
+      padding: 80px 20px;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      padding: 50px 20px;
       text-align: center;
 
       opacity: 0;
       transform: translateY(50px);
-      transition: opacity 1s ease-out, transform 1s ease-out, background-color 0.5s;
+      transition: opacity 1s ease-out, transform 1s ease-out;
     }
 
     section.visible {
@@ -114,37 +87,22 @@
       transform: translateY(0);
     }
 
-    /* Alternating subtle background colors */
     #home { background-color: var(--bg-color); }
-    #news { background-color: #1a1a1a; }
-    #publications { background-color: var(--bg-color); }
-    #cv { background-color: #1a1a1a; }
-    #contact { background-color: var(--bg-color); }
-    #search { background-color: #1a1a1a; }
+    #news, #cv, #search { background-color: #1a1a1a; }
+    #publications, #contact { background-color: var(--bg-color); }
 
-    body.dark-theme #news,
-    body.dark-theme #cv,
-    body.dark-theme #search {
-      background-color: #1a1a1a;
-    }
-
-    /* ===== Home Header Two-Column Layout ===== */
+    /* ===== Home Header ===== */
     .home-header {
+      max-width: 1100px;
+      width: 100%;
       display: flex;
-      flex-direction: row;
+      gap: 60px;
       align-items: flex-start;
-      justify-content: space-between;
-      max-width: 1000px;
-      width: 90%;
-      margin: 0 auto;
-      gap: 50px;
     }
 
     .home-left {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
       font-family: 'Fira Mono', monospace;
+      text-align: left;
     }
 
     .home-left img {
@@ -153,134 +111,211 @@
       margin-bottom: 15px;
     }
 
-    /* ===== Updated h1 styling ===== */
-    .home-left h1,
-    .home-right h1 {
+    .home-left h1 {
       font-family: 'Calibri', sans-serif;
-      font-size: 2.4em; /* slightly bigger */
-      font-weight: 700;
+      font-size: 2.4em;
       margin: 0;
     }
 
-    /* ===== Updated position/institution styling ===== */
-    .home-left .position,
-    .home-left .institution {
+    .home-left p {
       margin: 4px 0;
-      font-size: 1.2em;
-      line-height: 1.4;
-      font-weight: 600;
-      color: var(--text-color);
-      opacity: 0.85;  /* slightly lighter than main text for subtlety */
+      font-size: 1.15em;
+      opacity: 0.85;
     }
 
+    /* ===== Right Column Text (less smushed) ===== */
     .home-right {
       flex: 1;
-      font-size: 1.15em;
-      line-height: 1.6;
       text-align: left;
     }
 
-    /* Responsive for smaller screens */
-    @media (max-width: 768px) {
+    .home-right h1 {
+      font-family: 'Calibri', sans-serif;
+      font-size: 2em;
+      margin-top: 0;
+    }
+
+    .home-body {
+      max-width: 700px;
+      line-height: 1.8;
+      font-size: 1.15em;
+    }
+
+    .home-body p {
+      margin-bottom: 1.2em;
+    }
+
+    /* ===== New Interests / Education Section ===== */
+    .home-details {
+      margin-top: 60px;
+      max-width: 900px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      text-align: left;
+    }
+
+    .home-details h3 {
+      font-size: 1.4em;
+      margin-bottom: 15px;
+    }
+
+    .home-details ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .home-details li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .home-details li::before {
+      content: "– ";
+      opacity: 0.6;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 900px) {
       .home-header {
         flex-direction: column;
-        align-items: center;
-      }
-
-      .home-left {
         align-items: center;
         text-align: center;
       }
 
       .home-right {
         text-align: center;
-        margin-top: 20px;
+      }
+
+      .home-details {
+        grid-template-columns: 1fr;
+        gap: 40px;
       }
     }
   </style>
 </head>
+
 <body class="dark-theme">
 
-  <!-- ===== Navigation Bar ===== -->
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#news">News</a>
-    <a href="#publications">Publications</a>
-    <a href="#cv">CV</a>
-    <a href="#contact">Contact</a>
-    <a href="#search">🔍</a>
-    <button id="theme-toggle">☀️</button>
-  </nav>
+<nav>
+  <a href="#home">Home</a>
+  <a href="#news">News</a>
+  <a href="#publications">Publications</a>
+  <a href="#cv">CV</a>
+  <a href="#contact">Contact</a>
+  <a href="#search">🔍</a>
+  <button id="theme-toggle">☀️</button>
+</nav>
 
-  <!-- ===== Page Sections ===== -->
-
-  <!-- Home Section -->
-  <section id="home">
+<section id="home">
+  <div>
     <div class="home-header">
-      <!-- Left Column -->
       <div class="home-left">
         <img src="MRK_2501.jpg" alt="Headshot">
         <h1>Evan Nelles Henderson</h1>
-        <p class="position">MSc Student & Researcher</p>
-        <p class="department">Physics & Astronomy (Astrobiology)</p>
-        <p class="institution">McMaster University</p>
+        <p>MSc Student & Researcher</p>
+        <p>Physics & Astronomy (Astrobiology)</p>
+        <p>McMaster University</p>
       </div>
 
-      <!-- Right Column -->
       <div class="home-right">
         <h1>Hello!</h1>
-        <p>I am a masters student at McMaster University in Hamilton, Canada. My areas of research include exoplanets, mantle-atmosphere coupling, and the origins of life. I am supervised by Dr. Ralph Pudritz.</p>
-        <p>My research experience ranges from Bayesian analysis of exoplanet transits, to paleontology field work in the badlands of Dinosaur Provincial Park, Alberta. Currently I am performing coupled simulations evolving the atmospheres and interiors of rocky planets, with the ultimate goal of determining what kinds of planets can produce life. I am particularly interested in the way that mantle chemistry drives the production of atmospheric methane and HCN, which subsequently react to form the building blocks of life (amino acids, nucelobases, RNA) </p>
-        <p>I am an author and editor for Astrobites, and a science communicator at the William J. Macallion Planetarium. I am retired varsity rower who still likes to stay fit, and a retired improv club president who still likes to make people laugh. :)</p>
+        <div class="home-body">
+          <p>
+            I am a masters student at McMaster University in Hamilton, Canada. My areas of research include
+            exoplanets, mantle–atmosphere coupling, and the origins of life. I am supervised by
+            Dr. Ralph Pudritz.
+          </p>
+
+          <p>
+            My research experience ranges from Bayesian analysis of exoplanet transits to paleontology
+            field work in the badlands of Dinosaur Provincial Park, Alberta. Currently, I am performing
+            coupled simulations evolving the atmospheres and interiors of rocky planets, with the ultimate
+            goal of determining what kinds of planets can produce life.
+          </p>
+
+          <p>
+            I am particularly interested in the way mantle chemistry drives the production of atmospheric
+            methane and HCN, which subsequently react to form the building blocks of life.
+          </p>
+
+          <p>
+            I am an author and editor for Astrobites, a science communicator at the William J. Macallion
+            Planetarium, a retired varsity rower, and a former improv club president who still likes to
+            make people laugh 🙂
+          </p>
+        </div>
       </div>
     </div>
-  </section>
 
-  <section id="news">
-    <h2>News</h2>
-    <p>Updates and announcements coming soon!</p>
-  </section>
+    <!-- ===== New Two-Column Section ===== -->
+    <div class="home-details">
+      <div>
+        <h3>Interests</h3>
+        <ul>
+          <li>Exoplanet atmospheres & interiors</li>
+          <li>Mantle redox chemistry</li>
+          <li>Prebiotic chemistry & origin of life</li>
+          <li>Bayesian inference & modeling</li>
+          <li>Science communication</li>
+        </ul>
+      </div>
 
-  <section id="publications">
-    <h2>Publications</h2>
-    <p>List of papers and work coming soon!</p>
-  </section>
+      <div>
+        <h3>Education</h3>
+        <ul>
+          <li>MSc Physics & Astronomy (Astrobiology) — McMaster University</li>
+          <li>BSc (Honours) Physics — [Your undergrad institution]</li>
+          <li>Additional coursework in geology & paleontology</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <section id="cv">
-    <h2>CV</h2>
-    <p>Downloadable CV will appear here.</p>
-  </section>
+<section id="news">
+  <h2>News</h2>
+  <p>Updates and announcements coming soon!</p>
+</section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Reach out to me at <a href="mailto:hendee7@mcmaster.ca">hendee7@mcmaster.ca</a></p>
-  </section>
+<section id="publications">
+  <h2>Publications</h2>
+  <p>List of papers and work coming soon!</p>
+</section>
 
-  <section id="search">
-    <h2>Search</h2>
-    <p>Search functionality coming soon!</p>
-  </section>
+<section id="cv">
+  <h2>CV</h2>
+  <p>Downloadable CV will appear here.</p>
+</section>
 
-  <!-- ===== Scripts ===== -->
-  <script>
-    // Fade-in scroll animation
-    const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.2 });
-    sections.forEach(section => observer.observe(section));
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Reach out to me at <a href="mailto:hendee7@mcmaster.ca">hendee7@mcmaster.ca</a></p>
+</section>
 
-    // Theme toggle
-    const toggleBtn = document.getElementById('theme-toggle');
-    toggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark-theme');
-      toggleBtn.textContent = document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
+<section id="search">
+  <h2>Search</h2>
+  <p>Search functionality coming soon!</p>
+</section>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
     });
-  </script>
+  }, { threshold: 0.2 });
+  sections.forEach(section => observer.observe(section));
+
+  const toggleBtn = document.getElementById('theme-toggle');
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    toggleBtn.textContent = document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
+  });
+</script>
 
 </body>
+</html>
+
 </html>
