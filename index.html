@@ -241,13 +241,14 @@
       color: #aaa; /* fallback */
     }
 
-    body.dark-theme .institution {
-      color: #ddd; /* slightly brighter in dark mode */
-    }
+    body.dark-theme .institution { 
+  color: #cfcfcf; /* slightly darker than #ddd, softer on dark background */
+}
 
-    body:not(.dark-theme) .institution {
-      color: #555; /* significantly darker in light mode */
-    }
+body:not(.dark-theme) .institution { 
+  color: #666;    /* slightly lighter than #555, easier on light background */
+}
+
 
     /* Interests list: normal bullets */
     .home-details ul:not(.education-list) {
