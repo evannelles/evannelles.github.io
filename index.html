@@ -13,16 +13,18 @@
       --bg-color: #fefefe;
       --text-color: #222;
       --nav-bg-color: #ffffffcc;
-      --link-color: #7ec0ff;      /* link blue */
+      --link-color: #7ec0ff;      /* lighter initial blue */
       --link-hover: #4ea1ff;      /* slightly darker on hover */
+      --bullet-color: #000;        /* light mode bullet */
     }
 
     body.dark-theme {
       --bg-color: #111;
       --text-color: #eee;
       --nav-bg-color: #222cc0aa;
-      --link-color: #7ec0ff;      /* link blue */
-      --link-hover: #4ea1ff;      /* slightly darker on hover */
+      --link-color: #7ec0ff;      /* lighter blue for dark mode */
+      --link-hover: #4ea1ff;      /* darker hover */
+      --bullet-color: #fff;        /* dark mode bullet */
     }
 
     body {
@@ -186,14 +188,31 @@
       padding-left: 0;
     }
 
-    .home-details li {
-      margin-bottom: 10px;
+    /* Custom bullet for Education list */
+    .education-list li {
+      margin-bottom: 12px;
       line-height: 1.6;
+      position: relative;
+      padding-left: 1.6em; /* space for hat */
     }
 
-    .home-details li::before {
-      content: "– ";
-      opacity: 0.6;
+    .education-list li::before {
+      content: "🎓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1em;
+      line-height: 1;
+      color: var(--bullet-color);
+    }
+
+    /* Style for faint university name */
+    .institution {
+      display: block;
+      color: #aaa;
+      font-weight: 500;
+      font-size: 0.95em;
+      margin-top: 2px;
     }
 
     /* ===== Responsive ===== */
@@ -278,9 +297,15 @@
 
       <div>
         <h3>Education</h3>
-        <ul>
-          <li>MSc Physics & Astronomy (Astrobiology) — McMaster University</li>
-          <li>BSc Physics — [Your undergraduate institution]</li>
+        <ul class="education-list">
+          <li>
+            B.Sc. Physics (Minor: Natural History)  
+            <span class="institution">McGill University</span>
+          </li>
+          <li>
+            MSc Physics & Astronomy (Astrobiology), in progress  
+            <span class="institution">McMaster University</span>
+          </li>
         </ul>
       </div>
     </div>
@@ -332,5 +357,7 @@
   </script>
 
 </body>
+</html>
+
 </html>
 
