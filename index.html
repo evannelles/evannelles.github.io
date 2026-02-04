@@ -12,19 +12,19 @@
     :root {
       --bg-color: #fefefe;
       --text-color: #222;
-      --nav-bg-color: #ffffffcc;
-      --link-color: #7ec0ff;      /* lighter initial blue */
-      --link-hover: #4ea1ff;      /* slightly darker on hover */
-      --bullet-color: #000;        /* light mode bullet */
+      --nav-bg-color: #ffffff;   /* opaque white */
+      --link-color: #7ec0ff;
+      --link-hover: #4ea1ff;
+      --bullet-color: #000;
     }
 
     body.dark-theme {
       --bg-color: #111;
       --text-color: #eee;
-      --nav-bg-color: #222cc0aa;
-      --link-color: #7ec0ff;      /* lighter blue for dark mode */
-      --link-hover: #4ea1ff;      /* darker hover */
-      --bullet-color: #fff;        /* dark mode bullet */
+      --nav-bg-color: #222;      /* opaque dark gray */
+      --link-color: #7ec0ff;
+      --link-hover: #4ea1ff;
+      --bullet-color: #fff;
     }
 
     body {
@@ -42,7 +42,7 @@
     /* ===== Links ===== */
     a {
       color: var(--link-color);
-      text-decoration: none; /* no underline */
+      text-decoration: none;
       transition: color 0.3s ease;
     }
 
@@ -179,8 +179,8 @@
     }
 
     .home-details h3 {
-      font-size: 1.4em;
-      margin-bottom: 15px;
+      font-size: 1.6em;      /* slightly larger titles */
+      margin-bottom: 20px;
     }
 
     .home-details ul {
@@ -190,10 +190,11 @@
 
     /* Custom bullet for Education list */
     .education-list li {
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       line-height: 1.6;
       position: relative;
-      padding-left: 1.6em; /* space for hat */
+      padding-left: 2em;  /* more space for bigger hat */
+      font-size: 1.2em;   /* degree text larger than institution */
     }
 
     .education-list li::before {
@@ -201,7 +202,7 @@
       position: absolute;
       left: 0;
       top: 0;
-      font-size: 1em;
+      font-size: 1.6em;   /* bigger graduation hat */
       line-height: 1;
       color: var(--bullet-color);
     }
@@ -211,8 +212,25 @@
       display: block;
       color: #aaa;
       font-weight: 500;
-      font-size: 0.95em;
+      font-size: 1em;   /* slightly smaller than degree text */
       margin-top: 2px;
+    }
+
+    /* Interests list bullets same style, smaller hats */
+    .home-details ul:not(.education-list) li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 2em;
+      font-size: 1.1em;
+    }
+
+    .home-details ul:not(.education-list) li::before {
+      content: "🎓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.3em;  /* smaller than education hats */
+      color: var(--bullet-color);
     }
 
     /* ===== Responsive ===== */
@@ -357,7 +375,5 @@
   </script>
 
 </body>
-</html>
-
 </html>
 
