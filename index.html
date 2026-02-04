@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
+    /* ===== CSS Variables for Light/Dark Theme ===== */
     :root {
       --bg-color: #fefefe;
       --text-color: #222;
@@ -32,7 +33,7 @@
       transition: background-color 0.5s, color 0.5s;
     }
 
-    /* ===== Navigation ===== */
+    /* ===== Navigation Bar ===== */
     nav {
       position: fixed;
       top: 0;
@@ -51,6 +52,7 @@
       text-decoration: none;
       color: var(--text-color);
       font-weight: 600;
+      padding-bottom: 2px;
       border-bottom: 2px solid transparent;
     }
 
@@ -70,11 +72,12 @@
 
     /* ===== Sections ===== */
     section {
-      min-height: 100vh;
-      padding: 80px 20px;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      min-height: 100vh;
+      padding: 80px 20px;
       text-align: center;
 
       opacity: 0;
@@ -93,16 +96,19 @@
 
     /* ===== Home Header ===== */
     .home-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
       max-width: 1100px;
       width: 100%;
-      display: flex;
       gap: 60px;
-      align-items: flex-start;
     }
 
     .home-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
       font-family: 'Fira Mono', monospace;
-      text-align: left;
     }
 
     .home-left img {
@@ -114,19 +120,25 @@
     .home-left h1 {
       font-family: 'Calibri', sans-serif;
       font-size: 2.4em;
+      font-weight: 700;
       margin: 0;
     }
 
     .home-left p {
       margin: 4px 0;
-      font-size: 1.15em;
+      font-size: 1.2em;
+      line-height: 1.4;
+      font-weight: 600;
       opacity: 0.85;
     }
 
-    /* ===== Right Column Text (less smushed) ===== */
+    /* ===== Right Column Text ===== */
     .home-right {
       flex: 1;
       text-align: left;
+      max-width: 700px;
+      font-size: 1.15em;
+      line-height: 1.8;
     }
 
     .home-right h1 {
@@ -135,17 +147,11 @@
       margin-top: 0;
     }
 
-    .home-body {
-      max-width: 700px;
-      line-height: 1.8;
-      font-size: 1.15em;
-    }
-
-    .home-body p {
+    .home-right p {
       margin-bottom: 1.2em;
     }
 
-    /* ===== New Interests / Education Section ===== */
+    /* ===== Interests / Education ===== */
     .home-details {
       margin-top: 60px;
       max-width: 900px;
@@ -184,6 +190,10 @@
         text-align: center;
       }
 
+      .home-left {
+        align-items: center;
+      }
+
       .home-right {
         text-align: center;
       }
@@ -198,66 +208,56 @@
 
 <body class="dark-theme">
 
-<nav>
-  <a href="#home">Home</a>
-  <a href="#news">News</a>
-  <a href="#publications">Publications</a>
-  <a href="#cv">CV</a>
-  <a href="#contact">Contact</a>
-  <a href="#search">🔍</a>
-  <button id="theme-toggle">☀️</button>
-</nav>
+  <!-- ===== Navigation Bar ===== -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#news">News</a>
+    <a href="#publications">Publications</a>
+    <a href="#cv">CV</a>
+    <a href="#contact">Contact</a>
+    <a href="#search">🔍</a>
+    <button id="theme-toggle">☀️</button>
+  </nav>
 
-<section id="home">
-  <div>
+  <!-- ===== Home Section ===== -->
+  <section id="home">
     <div class="home-header">
+      <!-- Left Column -->
       <div class="home-left">
         <img src="MRK_2501.jpg" alt="Headshot">
         <h1>Evan Nelles Henderson</h1>
-        <p>MSc Student & Researcher</p>
-        <p>Physics & Astronomy (Astrobiology)</p>
-        <p>McMaster University</p>
+        <p class="position">MSc Student & Researcher</p>
+        <p class="department">Physics & Astronomy (Astrobiology)</p>
+        <p class="institution">McMaster University</p>
       </div>
 
+      <!-- Right Column -->
       <div class="home-right">
         <h1>Hello!</h1>
-        <div class="home-body">
-          <p>
-            I am a masters student at McMaster University in Hamilton, Canada. My areas of research include
-            exoplanets, mantle–atmosphere coupling, and the origins of life. I am supervised by
-            Dr. Ralph Pudritz.
-          </p>
 
-          <p>
-            My research experience ranges from Bayesian analysis of exoplanet transits to paleontology
-            field work in the badlands of Dinosaur Provincial Park, Alberta. Currently, I am performing
-            coupled simulations evolving the atmospheres and interiors of rocky planets, with the ultimate
-            goal of determining what kinds of planets can produce life.
-          </p>
+        <p>
+          I am a masters student at McMaster University in Hamilton, Canada. My areas of research include exoplanets, mantle-atmosphere coupling, and the origins of life. I am supervised by Dr. Ralph Pudritz.
+        </p>
 
-          <p>
-            I am particularly interested in the way mantle chemistry drives the production of atmospheric
-            methane and HCN, which subsequently react to form the building blocks of life.
-          </p>
+        <p>
+          My research experience ranges from Bayesian analysis of exoplanet transits to paleontology field work in the badlands of Dinosaur Provincial Park, Alberta. Currently, I am performing coupled simulations evolving the atmospheres and interiors of rocky planets, with the ultimate goal of determining what kinds of planets can produce life. I am particularly interested in the way that mantle chemistry drives the production of atmospheric methane and HCN, which subsequently react to form the building blocks of life (amino acids, nucleobases, RNA).
+        </p>
 
-          <p>
-            I am an author and editor for Astrobites, a science communicator at the William J. Macallion
-            Planetarium, a retired varsity rower, and a former improv club president who still likes to
-            make people laugh 🙂
-          </p>
-        </div>
+        <p>
+          I am an author and editor for <a href="https://astrobites.org">Astrobites</a>, and a science communicator at the <a href="https://planetarium.physics.mcmaster.ca/">William J. McCallion Planetarium</a>. I am a retired varsity rower who still likes to stay fit, and a retired improv club president who still likes to make people laugh. :)
+        </p>
       </div>
     </div>
 
-    <!-- ===== New Two-Column Section ===== -->
+    <!-- ===== Interests & Education ===== -->
     <div class="home-details">
       <div>
         <h3>Interests</h3>
         <ul>
-          <li>Exoplanet atmospheres & interiors</li>
-          <li>Mantle redox chemistry</li>
-          <li>Prebiotic chemistry & origin of life</li>
-          <li>Bayesian inference & modeling</li>
+          <li>Exoplanets</li>
+          <li>Mantle-atmosphere coupling</li>
+          <li>Origins of life</li>
+          <li>Planetary interiors</li>
           <li>Science communication</li>
         </ul>
       </div>
@@ -266,56 +266,57 @@
         <h3>Education</h3>
         <ul>
           <li>MSc Physics & Astronomy (Astrobiology) — McMaster University</li>
-          <li>BSc (Honours) Physics — [Your undergrad institution]</li>
-          <li>Additional coursework in geology & paleontology</li>
+          <li>BSc Physics — [Your undergraduate institution]</li>
         </ul>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="news">
-  <h2>News</h2>
-  <p>Updates and announcements coming soon!</p>
-</section>
+  <section id="news">
+    <h2>News</h2>
+    <p>Updates and announcements coming soon!</p>
+  </section>
 
-<section id="publications">
-  <h2>Publications</h2>
-  <p>List of papers and work coming soon!</p>
-</section>
+  <section id="publications">
+    <h2>Publications</h2>
+    <p>List of papers and work coming soon!</p>
+  </section>
 
-<section id="cv">
-  <h2>CV</h2>
-  <p>Downloadable CV will appear here.</p>
-</section>
+  <section id="cv">
+    <h2>CV</h2>
+    <p>Downloadable CV will appear here.</p>
+  </section>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Reach out to me at <a href="mailto:hendee7@mcmaster.ca">hendee7@mcmaster.ca</a></p>
-</section>
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Reach out to me at <a href="mailto:hendee7@mcmaster.ca">hendee7@mcmaster.ca</a></p>
+  </section>
 
-<section id="search">
-  <h2>Search</h2>
-  <p>Search functionality coming soon!</p>
-</section>
+  <section id="search">
+    <h2>Search</h2>
+    <p>Search functionality coming soon!</p>
+  </section>
 
-<script>
-  const sections = document.querySelectorAll('section');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
+  <!-- ===== Scripts ===== -->
+  <script>
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+    sections.forEach(section => observer.observe(section));
+
+    const toggleBtn = document.getElementById('theme-toggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-theme');
+      toggleBtn.textContent =
+        document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
     });
-  }, { threshold: 0.2 });
-  sections.forEach(section => observer.observe(section));
-
-  const toggleBtn = document.getElementById('theme-toggle');
-  toggleBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-theme');
-    toggleBtn.textContent = document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
-  });
-</script>
+  </script>
 
 </body>
 </html>
 
-</html>
