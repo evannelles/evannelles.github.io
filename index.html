@@ -40,15 +40,25 @@
     }
 
     /* ===== Links ===== */
-    a {
-      color: var(--link-color);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
 
-    a:hover {
-      color: var(--link-hover);
-    }
+a:hover {
+  color: var(--link-hover);
+}
+
+/* ===== Light mode specific link color ===== */
+body:not(.dark-theme) a {
+  color: #0066cc; /* darker blue for light mode */
+}
+
+body:not(.dark-theme) a:hover {
+  color: #004999; /* slightly darker on hover */
+}
+
 
     /* ===== Navigation Bar ===== */
     nav {
