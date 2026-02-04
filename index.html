@@ -40,25 +40,24 @@
     }
 
     /* ===== Links ===== */
-a {
-  color: var(--link-color);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
 
-a:hover {
-  color: var(--link-hover);
-}
+    a:hover {
+      color: var(--link-hover);
+    }
 
-/* ===== Light mode specific link color ===== */
-body:not(.dark-theme) a {
-  color: #0066cc; /* darker blue for light mode */
-}
+    /* ===== Light mode specific link color ===== */
+    body:not(.dark-theme) a {
+      color: #0066cc; /* darker blue for light mode */
+    }
 
-body:not(.dark-theme) a:hover {
-  color: #004999; /* slightly darker on hover */
-}
-
+    body:not(.dark-theme) a:hover {
+      color: #004999; /* slightly darker on hover */
+    }
 
     /* ===== Navigation Bar ===== */
     nav {
@@ -117,8 +116,7 @@ body:not(.dark-theme) a:hover {
     }
 
     /* ===== Section Colors ===== */
-    #home { background-color: var(--bg-color); }
-    #publications, #contact { background-color: var(--bg-color); }
+    #home, #publications, #contact { background-color: var(--bg-color); }
 
     /* Dark mode default for these sections */
     #news, #cv, #search {
@@ -192,18 +190,18 @@ body:not(.dark-theme) a:hover {
     }
 
     /* ===== Interests / Education ===== */
-   .home-details {
-  margin-top: 60px;
-  max-width: 1100px;   /* wider container for more space */
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr; /* Interests column smaller, Education wider */
-  gap: 60px;
-  text-align: left;
-  justify-content: start; /* aligns the grid to the left */
-  margin-left: 40px;      /* optional: add some left margin to push it slightly away from the edge */
-}
-
+    .home-details {
+      margin-top: 60px;
+      max-width: 1200px;           /* wider container */
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr; /* Interests smaller, Education wider */
+      gap: 60px;
+      text-align: left;
+      justify-content: start;       /* align grid to left */
+      margin-left: 0;
+      padding-left: 20px;           /* small buffer from edge */
+    }
 
     .home-details h3 {
       font-size: 1.6em;
@@ -283,6 +281,7 @@ body:not(.dark-theme) a:hover {
       .home-details {
         grid-template-columns: 1fr;
         gap: 40px;
+        padding-left: 0;
       }
     }
   </style>
@@ -310,16 +309,17 @@ body:not(.dark-theme) a:hover {
         <p class="position">M.Sc. Student & Researcher</p>
         <p class="department">Physics & Astronomy (Astrobiology)</p>
         <p class="institution">
-  <a href="https://physics.mcmaster.ca/" target="_blank" rel="noopener noreferrer">McMaster University</a>
-</p>
-
+          <a href="https://www.mcmaster.ca" target="_blank" rel="noopener noreferrer">McMaster University</a>
+        </p>
       </div>
 
       <div class="home-right">
         <h1>Hello!</h1>
         <p>
-          I am a masters student at McMaster University in Hamilton, Canada. My areas of research include exoplanets, mantle-atmosphere coupling, and the origins of life. I am supervised by 
-  <a href="https://experts.mcmaster.ca/people/pudritz" target="_blank" rel="noopener noreferrer">Dr. Ralph Pudritz</a>.
+          I am a masters student at 
+          <a href="https://www.mcmaster.ca" target="_blank" rel="noopener noreferrer">McMaster University</a> 
+          in Hamilton, Canada. My areas of research include exoplanets, mantle-atmosphere coupling, and the origins of life. I am supervised by 
+          <a href="https://experts.mcmaster.ca/people/pudritz" target="_blank" rel="noopener noreferrer">Dr. Ralph Pudritz</a>.
         </p>
         <p>
           My research experience ranges from Bayesian analysis of exoplanet transits to paleontology field work in the badlands of Dinosaur Provincial Park, Alberta. Currently, I am performing coupled simulations evolving the atmospheres and interiors of rocky planets, with the ultimate goal of determining what kinds of planets can produce life. I am particularly interested in the way that mantle chemistry drives the production of atmospheric methane and HCN, which subsequently react to form the building blocks of life (amino acids, nucleobases, RNA).
@@ -347,11 +347,15 @@ body:not(.dark-theme) a:hover {
         <ul class="education-list">
           <li>
              M.Sc. Physics & Astronomy (Astrobiology), in progress  
-            <span class="institution">McMaster University</span>
+            <span class="institution">
+              <a href="https://www.mcmaster.ca" target="_blank" rel="noopener noreferrer">McMaster University</a>
+            </span>
           </li>
           <li>
              B.Sc. Physics (Minor: Natural History), 2024  
-            <span class="institution">McGill University</span>
+            <span class="institution">
+              <a href="https://www.mcgill.ca" target="_blank" rel="noopener noreferrer">McGill University</a>
+            </span>
           </li>
         </ul>
       </div>
@@ -405,3 +409,4 @@ body:not(.dark-theme) a:hover {
 
 </body>
 </html>
+
