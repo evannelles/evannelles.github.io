@@ -12,7 +12,7 @@
     :root {
       --bg-color: #fefefe;
       --text-color: #222;
-      --nav-bg-color: #ffffff;   /* opaque white */
+      --nav-bg-color: #ffffff;   
       --link-color: #7ec0ff;
       --link-hover: #4ea1ff;
       --bullet-color: #000;
@@ -21,7 +21,7 @@
     body.dark-theme {
       --bg-color: #111;
       --text-color: #eee;
-      --nav-bg-color: #222;      /* opaque dark gray */
+      --nav-bg-color: #222;      
       --link-color: #7ec0ff;
       --link-hover: #4ea1ff;
       --bullet-color: #fff;
@@ -106,9 +106,23 @@
       transform: translateY(0);
     }
 
+    /* ===== Section Colors ===== */
     #home { background-color: var(--bg-color); }
-    #news, #cv, #search { background-color: #1a1a1a; }
     #publications, #contact { background-color: var(--bg-color); }
+
+    /* Dark mode default for these sections */
+    #news, #cv, #search {
+      background-color: #1a1a1a;
+      color: #eee;
+    }
+
+    /* Light mode overrides */
+    body:not(.dark-theme) #news,
+    body:not(.dark-theme) #cv,
+    body:not(.dark-theme) #search {
+      background-color: #f9f9f9;
+      color: #222;
+    }
 
     /* ===== Home Header ===== */
     .home-header {
@@ -179,7 +193,7 @@
     }
 
     .home-details h3 {
-      font-size: 1.6em;      /* slightly larger titles */
+      font-size: 1.6em;
       margin-bottom: 20px;
     }
 
@@ -193,8 +207,8 @@
       margin-bottom: 14px;
       line-height: 1.6;
       position: relative;
-      padding-left: 2.5em;  /* more space for bigger hat */
-      font-size: 1.2em;   /* degree text larger than institution */
+      padding-left: 2.5em;
+      font-size: 1.2em;
     }
 
     .education-list li::before {
@@ -202,33 +216,40 @@
       position: absolute;
       left: 0;
       top: 0;
-      font-size: 1.6em;   /* bigger graduation hat */
+      font-size: 1.6em;
       line-height: 1;
       color: var(--bullet-color);
     }
 
-    /* Style for faint university name */
+    /* Institution text */
     .institution {
       display: block;
-      color: #aaa;
       font-weight: 500;
-      font-size: 1em;   /* slightly smaller than degree text */
+      font-size: 1em;
       margin-top: 2px;
+      color: #aaa; /* fallback */
+    }
+
+    body.dark-theme .institution {
+      color: #ddd; /* slightly brighter in dark mode */
+    }
+
+    body:not(.dark-theme) .institution {
+      color: #555; /* significantly darker in light mode */
     }
 
     /* Interests list: normal bullets */
     .home-details ul:not(.education-list) {
       list-style-type: disc;
-      padding-left: 1.2em; /* adjust indentation */
+      padding-left: 1.2em;
       margin-bottom: 0;
-}
+    }
 
     .home-details ul:not(.education-list) li {
       margin-bottom: 10px;
       font-size: 1.1em;
       line-height: 1.6;
-}
-
+    }
 
     /* ===== Responsive ===== */
     @media (max-width: 900px) {
@@ -270,7 +291,6 @@
   <!-- ===== Home Section ===== -->
   <section id="home">
     <div class="home-header">
-      <!-- Left Column -->
       <div class="home-left">
         <img src="MRK_2501.jpg" alt="Headshot">
         <h1>Evan Nelles Henderson</h1>
@@ -279,25 +299,20 @@
         <p class="institution">McMaster University</p>
       </div>
 
-      <!-- Right Column -->
       <div class="home-right">
         <h1>Hello!</h1>
-
         <p>
           I am a masters student at McMaster University in Hamilton, Canada. My areas of research include exoplanets, mantle-atmosphere coupling, and the origins of life. I am supervised by Dr. Ralph Pudritz.
         </p>
-
         <p>
           My research experience ranges from Bayesian analysis of exoplanet transits to paleontology field work in the badlands of Dinosaur Provincial Park, Alberta. Currently, I am performing coupled simulations evolving the atmospheres and interiors of rocky planets, with the ultimate goal of determining what kinds of planets can produce life. I am particularly interested in the way that mantle chemistry drives the production of atmospheric methane and HCN, which subsequently react to form the building blocks of life (amino acids, nucleobases, RNA).
         </p>
-
         <p>
           I am an author and editor for <a href="https://astrobites.org">Astrobites</a>, and a science communicator at the <a href="https://planetarium.physics.mcmaster.ca/">William J. McCallion Planetarium</a>. I am a retired varsity rower who still likes to work out, and a retired improv club president who still likes to make people laugh. :)
         </p>
       </div>
     </div>
 
-    <!-- ===== Interests & Education ===== -->
     <div class="home-details">
       <div>
         <h3>Interests</h3>
@@ -373,4 +388,3 @@
 
 </body>
 </html>
-
