@@ -216,22 +216,19 @@
       margin-top: 2px;
     }
 
-    /* Interests list bullets same style, smaller hats */
+    /* Interests list: normal bullets */
+    .home-details ul:not(.education-list) {
+      list-style-type: disc;
+      padding-left: 1.2em; /* adjust indentation */
+      margin-bottom: 0;
+}
+
     .home-details ul:not(.education-list) li {
       margin-bottom: 10px;
-      position: relative;
-      padding-left: 2em;
       font-size: 1.1em;
-    }
+      line-height: 1.6;
+}
 
-    .home-details ul:not(.education-list) li::before {
-      content: "🎓";
-      position: absolute;
-      left: 0;
-      top: 0;
-      font-size: 1.3em;  /* smaller than education hats */
-      color: var(--bullet-color);
-    }
 
     /* ===== Responsive ===== */
     @media (max-width: 900px) {
