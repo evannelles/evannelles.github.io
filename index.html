@@ -61,17 +61,19 @@
 
     /* ===== Navigation Bar ===== */
     nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: var(--nav-bg-color);
-      display: flex;
-      justify-content: right;
-      align-items: center;
-      padding: 1% 0;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      z-index: 1000;
-    }
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--nav-bg-color);
+  display: flex;
+  justify-content: flex-end;   /* proper right alignment */
+  align-items: center;
+  padding: 12px 24px;          /* predictable spacing */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 1000;
+  gap: 18px;                   /* consistent spacing between items */
+}
+
 
     nav a {
       margin: 0 15px;
