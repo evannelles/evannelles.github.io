@@ -8,11 +8,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
-    /* ===== CSS Variables for Light/Dark Theme ===== */
+    /* ===== CSS Variables ===== */
     :root {
       --bg-color: #fefefe;
       --text-color: #222;
-      --nav-bg-color: #ffffff;   
+      --nav-bg-color: #ffffff;
       --link-color: #7ec0ff;
       --link-hover: #4ea1ff;
       --bullet-color: #000;
@@ -21,7 +21,7 @@
     body.dark-theme {
       --bg-color: #111;
       --text-color: #eee;
-      --nav-bg-color: #222;      
+      --nav-bg-color: #222;
       --link-color: #7ec0ff;
       --link-hover: #4ea1ff;
       --bullet-color: #fff;
@@ -34,9 +34,8 @@
       background-color: var(--bg-color);
       color: var(--text-color);
       margin: 0;
-      padding: 0;
       scroll-behavior: smooth;
-      transition: background-color 0.5s, color 0.5s;
+      transition: background-color 0.4s, color 0.4s;
     }
 
     /* ===== Links ===== */
@@ -50,33 +49,34 @@
       color: var(--link-hover);
     }
 
-    /* ===== Light mode specific link color ===== */
     body:not(.dark-theme) a {
-      color: #0066cc; /* darker blue for light mode */
+      color: #0066cc;
     }
 
     body:not(.dark-theme) a:hover {
-      color: #004999; /* slightly darker on hover */
+      color: #004999;
     }
 
     /* ===== Navigation Bar ===== */
     nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: var(--nav-bg-color);
-  display: flex;
-  justify-content: flex-end;   /* proper right alignment */
-  align-items: center;
-  padding: 12px 24px;          /* predictable spacing */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  z-index: 1000;
-  gap: 18px;                   /* consistent spacing between items */
-}
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: var(--nav-bg-color);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
 
+    .nav-right {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 18px;
+      padding: 12px 24px;
+      box-sizing: border-box;
+    }
 
     nav a {
-      margin: 0 15px;
       font-weight: 600;
       padding-bottom: 2px;
       border-bottom: 2px solid transparent;
@@ -84,7 +84,6 @@
     }
 
     nav a:hover {
-      color: var(--link-hover);
       border-bottom: 2px solid var(--link-hover);
     }
 
@@ -92,24 +91,29 @@
       background: none;
       border: none;
       font-size: 1.2em;
-      margin-left: 15px;
       cursor: pointer;
       color: var(--text-color);
+      padding: 4px 6px;
+      opacity: 0.85;
+    }
+
+    nav button:hover {
+      opacity: 1;
     }
 
     /* ===== Sections ===== */
     section {
+      min-height: 100vh;
+      padding: 100px 20px 80px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      padding: 80px 20px;
       text-align: center;
 
       opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 1s ease-out, transform 1s ease-out;
+      transform: translateY(40px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
     }
 
     section.visible {
@@ -117,16 +121,15 @@
       transform: translateY(0);
     }
 
-    /* ===== Section Colors ===== */
-    #home, #publications, #contact { background-color: var(--bg-color); }
+    #home, #publications, #contact {
+      background-color: var(--bg-color);
+    }
 
-    /* Dark mode default for these sections */
     #news, #cv, #search {
       background-color: #1a1a1a;
       color: #eee;
     }
 
-    /* Light mode overrides */
     body:not(.dark-theme) #news,
     body:not(.dark-theme) #cv,
     body:not(.dark-theme) #search {
@@ -134,23 +137,22 @@
       color: #222;
     }
 
-    /* ===== Home Header ===== */
+    /* ===== Home Layout ===== */
     .home-header {
       display: flex;
-      align-items: flex-start;
       justify-content: space-between;
+      align-items: flex-start;
       max-width: 1200px;
       width: 100%;
       gap: 60px;
-      margin-top: 2em;
     }
 
     .home-left {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      font-family: 'Fira Mono', monospace;
       margin-top: 2em;
+      font-family: 'Fira Mono', monospace;
     }
 
     .home-left img {
@@ -162,23 +164,19 @@
     .home-left h1 {
       font-family: 'Calibri', sans-serif;
       font-size: 2.4em;
-      font-weight: 700;
       margin: 0;
     }
 
     .home-left p {
       margin: 4px 0;
       font-size: 1.2em;
-      line-height: 1.4;
       font-weight: 600;
       opacity: 0.85;
     }
 
-    /* ===== Right Column Text ===== */
     .home-right {
       flex: 1;
       text-align: left;
-      max-width: 1200px;
       font-size: 1.15em;
       line-height: 1.8;
     }
@@ -189,22 +187,16 @@
       margin-top: 1em;
     }
 
-    .home-right p {
-      margin-bottom: 1.2em;
-    }
-
-    /* ===== Interests / Education ===== */
+    /* ===== Interests & Education ===== */
     .home-details {
       margin-top: 60px;
-      max-width: 1200px;           /* wider container */
+      max-width: 1200px;
       width: 100%;
       display: grid;
-      grid-template-columns: 1fr 1.5fr; /* Interests smaller, Education wider */
+      grid-template-columns: 1fr 1.5fr;
       gap: 60px;
       text-align: left;
-      justify-content: start;       /* align grid to left */
-      margin-left: 0;
-      padding-left: 20px;           /* small buffer from edge */
+      padding-left: 20px;
     }
 
     .home-details h3 {
@@ -213,17 +205,15 @@
     }
 
     .home-details ul {
-      list-style: none;
       padding-left: 0;
+      list-style: none;
     }
 
-    /* Custom bullet for Education list */
     .education-list li {
-      margin-bottom: 14px;
-      line-height: 1.6;
       position: relative;
       padding-left: 2.5em;
       font-size: 1.2em;
+      margin-bottom: 14px;
     }
 
     .education-list li::before {
@@ -232,39 +222,26 @@
       left: 0;
       top: 0;
       font-size: 1.6em;
-      line-height: 1;
-      color: var(--bullet-color);
     }
 
-    /* Institution text */
     .institution {
       display: block;
-      font-weight: 500;
       font-size: 1em;
       margin-top: 2px;
-      color: #aaa; /* fallback */
+      color: #aaa;
     }
 
-    body.dark-theme .institution { 
-  color: #cfcfcf; /* slightly darker than #ddd, softer on dark background */
-}
+    body.dark-theme .institution { color: #cfcfcf; }
+    body:not(.dark-theme) .institution { color: #666; }
 
-body:not(.dark-theme) .institution { 
-  color: #666;    /* slightly lighter than #555, easier on light background */
-}
-
-
-    /* Interests list: normal bullets */
     .home-details ul:not(.education-list) {
-      list-style-type: disc;
+      list-style: disc;
       padding-left: 1.2em;
-      margin-bottom: 0;
     }
 
     .home-details ul:not(.education-list) li {
-      margin-bottom: 10px;
       font-size: 1.1em;
-      line-height: 1.6;
+      margin-bottom: 10px;
     }
 
     /* ===== Responsive ===== */
@@ -285,7 +262,6 @@ body:not(.dark-theme) .institution {
 
       .home-details {
         grid-template-columns: 1fr;
-        gap: 40px;
         padding-left: 0;
       }
     }
@@ -294,41 +270,49 @@ body:not(.dark-theme) .institution {
 
 <body class="dark-theme">
 
-  <!-- ===== Navigation Bar ===== -->
+  <!-- ===== Navigation ===== -->
   <nav>
-    <a href="#home">Home</a>
-    <a href="#news">News</a>
-    <a href="#publications">Publications</a>
-    <a href="#cv">CV</a>
-    <a href="#contact">Contact</a>
-    <a href="#search">🔍</a>
-    <button id="theme-toggle">☀️</button>
+    <div class="nav-right">
+      <a href="#home">Home</a>
+      <a href="#news">News</a>
+      <a href="#publications">Publications</a>
+      <a href="#cv">CV</a>
+      <a href="#contact">Contact</a>
+      <a href="#search">🔍</a>
+      <button id="theme-toggle">☀️</button>
+    </div>
   </nav>
 
-  <!-- ===== Home Section ===== -->
+  <!-- ===== Home ===== -->
   <section id="home">
     <div class="home-header">
       <div class="home-left">
         <img src="MRK_2501.jpg" alt="Headshot">
         <h1>Evan Nelles Henderson</h1>
-        <p class="position">M.Sc. Student & Researcher</p>
-        <p class="department">Physics & Astronomy (Astrobiology)</p>
+        <p>M.Sc. Student & Researcher</p>
+        <p>Physics & Astronomy (Astrobiology)</p>
         <p class="institution">
-          <a href="https://physics.mcmaster.ca/" target="_blank" rel="noopener noreferrer">McMaster University</a>
+          <a href="https://physics.mcmaster.ca/" target="_blank" rel="noopener noreferrer">
+            McMaster University
+          </a>
         </p>
       </div>
 
       <div class="home-right">
         <h1>Hello!</h1>
         <p>
-          I am a masters student at McMaster University in Hamilton, Canada. My areas of research include exoplanets, mantle-atmosphere coupling, and the origins of life. I am supervised by 
-          <a href="https://experts.mcmaster.ca/people/pudritz" target="_blank" rel="noopener noreferrer">Dr. Ralph Pudritz</a>.
+          I am a masters student at McMaster University in Hamilton, Canada. My research focuses on exoplanets,
+          mantle–atmosphere coupling, and the origins of life. I am supervised by
+          <a href="https://experts.mcmaster.ca/people/pudritz" target="_blank">Dr. Ralph Pudritz</a>.
         </p>
         <p>
-          My research experience ranges from Bayesian analysis of exoplanet transits to paleontology field work in the badlands of Dinosaur Provincial Park, Alberta. Currently, I am performing coupled simulations evolving the atmospheres and interiors of rocky planets, with the ultimate goal of determining what kinds of planets can produce life. I am particularly interested in the way that mantle chemistry drives the production of atmospheric methane and HCN, which subsequently react to form the building blocks of life (amino acids, nucleobases, RNA).
+          My experience spans Bayesian analysis of exoplanet transits to paleontology field work in Dinosaur
+          Provincial Park. I currently run coupled interior–atmosphere simulations of rocky planets to determine
+          what kinds of worlds can support life.
         </p>
         <p>
-          I am an author and editor for <a href="https://astrobites.org">Astrobites</a>, and a science communicator at the <a href="https://planetarium.physics.mcmaster.ca/">William J. McCallion Planetarium</a>. I am a retired varsity rower who still likes to work out, and a retired improv club president who still likes to make people laugh. :)
+          I am an author and editor for <a href="https://astrobites.org">Astrobites</a> and a science communicator at
+          the <a href="https://planetarium.physics.mcmaster.ca/">William J. McCallion Planetarium</a>.
         </p>
       </div>
     </div>
@@ -338,53 +322,52 @@ body:not(.dark-theme) .institution {
         <h3>Interests</h3>
         <ul>
           <li>Exoplanets</li>
-          <li>Mantle-atmosphere coupling</li>
+          <li>Mantle–atmosphere coupling</li>
           <li>Origins of life</li>
           <li>Planetary interiors</li>
           <li>Science communication</li>
         </ul>
       </div>
 
-     <div>
-  <h3>Education</h3>
-  <ul class="education-list">
-    <li>
-       M.Sc. Physics & Astronomy (Astrobiology), in progress  
-      <span class="institution">McMaster University</span>
-    </li>
-    <li>
-       B.Sc. Physics (Minor: Natural History), 2024  
-      <span class="institution">McGill University</span>
-    </li>
-  </ul>
-</div>
-
+      <div>
+        <h3>Education</h3>
+        <ul class="education-list">
+          <li>
+            M.Sc. Physics & Astronomy (Astrobiology), in progress
+            <span class="institution">McMaster University</span>
+          </li>
+          <li>
+            B.Sc. Physics (Minor: Natural History), 2024
+            <span class="institution">McGill University</span>
+          </li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <section id="news">
     <h2>News</h2>
-    <p>Updates and announcements coming soon!</p>
+    <p>Updates coming soon.</p>
   </section>
 
   <section id="publications">
     <h2>Publications</h2>
-    <p>List of papers and work coming soon!</p>
+    <p>Papers and work coming soon.</p>
   </section>
 
   <section id="cv">
     <h2>CV</h2>
-    <p>Downloadable CV will appear here.</p>
+    <p>Downloadable CV coming soon.</p>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>Reach out to me at <a href="mailto:hendee7@mcmaster.ca">hendee7@mcmaster.ca</a></p>
+    <p>Email: <a href="mailto:hendee7@mcmaster.ca">hendee7@mcmaster.ca</a></p>
   </section>
 
   <section id="search">
     <h2>Search</h2>
-    <p>Search functionality coming soon!</p>
+    <p>Search functionality coming soon.</p>
   </section>
 
   <!-- ===== Scripts ===== -->
@@ -397,6 +380,7 @@ body:not(.dark-theme) .institution {
         }
       });
     }, { threshold: 0.2 });
+
     sections.forEach(section => observer.observe(section));
 
     const toggleBtn = document.getElementById('theme-toggle');
