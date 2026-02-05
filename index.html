@@ -88,17 +88,20 @@
       border-bottom: 2px solid var(--link-hover);
     }
 
-    nav button {
-      background: none;
-      border: none;
-      font-size: 1.2em;
-      cursor: pointer;
-      color: var(--text-color);
-      padding: 0; /* remove extra padding */
-      display: flex;
-      align-items: center; /* vertically centers the sun icon */
-      line-height: 1;
-    }
+   nav button {
+  background: none;
+  border: none;
+  font-size: 1em;          /* match nav links */
+  cursor: pointer;
+  color: var(--text-color);
+  padding: 0;              /* remove extra padding */
+  display: flex;
+  align-items: center;      /* vertically centers the icon */
+  justify-content: center;
+  line-height: 1;           /* match nav links */
+  margin-top: -2px;         /* tiny nudge if still slightly low */
+}
+
 
     nav button:hover {
       opacity: 1;
