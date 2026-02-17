@@ -580,13 +580,14 @@ function sortPublications(order) {
   const items = Array.from(pubList.children);
 
   items.sort((a, b) => {
-    const y1 = parseInt(a.dataset.year);
-    const y2 = parseInt(b.dataset.year);
-    return order === 'asc' ? y1 - y2 : y2 - y1;
+    const d1 = new Date(a.dataset.date);
+    const d2 = new Date(b.dataset.date);
+    return order === 'asc' ? d1 - d2 : d2 - d1;
   });
 
   items.forEach(item => pubList.appendChild(item));
 }
+
 
 sortSelect.addEventListener('change', () => {
   sortPublications(sortSelect.value);
