@@ -271,6 +271,58 @@
         padding-left: 0;
       }
     }
+    @media (max-width: 600px) {
+  .pub-controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+    /* ===== Publication Controls ===== */
+.pub-controls {
+  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.filter-buttons button {
+  background: none;
+  border: 1.5px solid var(--link-color);
+  color: var(--text-color);
+  padding: 6px 14px;
+  font-size: 0.95em;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.filter-buttons button.active,
+.filter-buttons button:hover {
+  background: var(--link-color);
+  color: #111;
+}
+
+.sort-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95em;
+}
+
+.sort-box select {
+  padding: 4px 8px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
   </style>
 </head>
 
@@ -354,9 +406,63 @@
   </section>
 
   <section id="publications">
-    <h2>Publications</h2>
-    <p>Papers and work coming soon.</p>
-  </section>
+  <h2>Writing & Publications</h2>
+
+  <div class="pub-controls">
+    <div class="filter-buttons">
+      <button data-filter="all" class="active">All</button>
+      <button data-filter="article">Articles</button>
+      <button data-filter="paper">Papers</button>
+    </div>
+
+    <div class="sort-box">
+      <label for="sort-select">Sort:</label>
+      <select id="sort-select">
+        <option value="desc">Newest → Oldest</option>
+        <option value="asc">Oldest → Newest</option>
+      </select>
+    </div>
+  </div>
+
+  <ul class="pub-list master">
+
+    <!-- Article -->
+    <li data-type="article" data-year="2026">
+      <span class="pub-authors">Henderson, E.N.</span> (2026).
+      <span class="pub-title">Hang on to Your Water, Super-Earths!</span>
+      <em>Astrobites</em>.
+      <a href="https://astrobites.org/2026/02/17/hang-on-to-your-water-super-earths/"
+         target="_blank" rel="noopener noreferrer">[Read]</a>
+    </li>
+
+    <!-- PDF Articles -->
+    <li data-type="article" data-year="2024">
+      <span class="pub-authors">Henderson, E.N.</span> (2024).
+      <span class="pub-title">Title of PDF Project One</span>.
+      <em>Science communication article</em>.
+      <a href="pdfs/project1.pdf" target="_blank">[PDF]</a>
+    </li>
+
+    <li data-type="article" data-year="2023">
+      <span class="pub-authors">Henderson, E.N.</span> (2023).
+      <span class="pub-title">Title of PDF Project Two</span>.
+      <em>Public outreach project</em>.
+      <a href="pdfs/project2.pdf" target="_blank">[PDF]</a>
+    </li>
+
+    <!-- Future academic paper example -->
+    <!--
+    <li data-type="paper" data-year="2027">
+      Henderson, E.N., Pudritz, R.E. (2027).
+      <span class="pub-title">Atmosphere–Interior Coupling on Rocky Exoplanets</span>.
+      <em>Astrophysical Journal</em>.
+      <a href="#">[PDF]</a>
+    </li>
+    -->
+
+  </ul>
+</section>
+
 
   <section id="cv">
     <h2>CV</h2>
@@ -392,6 +498,52 @@
       toggleBtn.textContent =
         document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
     });
+    /* ===== Publications Filter & Sort ===== */
+
+const filterButtons = document.querySelectorAll('.filter-buttons button');
+const pubList = document.querySelector('.pub-list.master');
+const sortSelect = document.getElementById('sort-select');
+
+function applyFilter(filter) {
+  const items = Array.from(pubList.children);
+
+  items.forEach(item => {
+    const type = item.dataset.type;
+    item.style.display =
+      filter === 'all' || type === filter ? 'block' : 'none';
+  });
+
+  sortPublications(sortSelect.value);
+}
+
+
+filterButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterButtons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilter(btn.dataset.filter);
+  });
+});
+
+function sortPublications(order) {
+  const items = Array.from(pubList.children);
+
+  items.sort((a, b) => {
+    const y1 = parseInt(a.dataset.year);
+    const y2 = parseInt(b.dataset.year);
+    return order === 'asc' ? y1 - y2 : y2 - y1;
+  });
+
+  items.forEach(item => pubList.appendChild(item));
+}
+
+sortSelect.addEventListener('change', () => {
+  sortPublications(sortSelect.value);
+});
+
+// default: newest first
+sortPublications('desc');
+
   </script>
 
 </body>
