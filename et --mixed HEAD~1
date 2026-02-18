@@ -1,0 +1,99 @@
+[33m8fe2f99[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Modify card image height and display properties
+[33mb003300[m Increase card image height from 200px to 220px
+[33mca5d022[m Increase card image height from 190px to 200px
+[33m50616c3[m Light mode override for publication buttons and borders
+[33m61064aa[m Update card image height and content padding
+[33m6b61a1a[m Open links in new tabs
+[33m8ce6027[m Add #publications to non-dark theme styles
+[33mc25fbbd[m Update index.html
+[33ma7af2a6[m Update section IDs in index.html
+[33mc5e6e6f[m Reorder News section in index.html
+[33medd4095[m Change sorting of publications to use date
+[33mf19d6c4[m Update article date attribute in index.html
+[33m5118918[m Update publication date in card-meta
+[33mccf0077[m Remove PDF articles section from index.html
+[33me7f9096[m Update image source for Super-Earth illustration
+[33m1aa8721[m Rename Ocean water.jpg.png to super-earths.png
+[33m4f436a7[m add hang on to water superearths image
+[33me630916[m Implement publication cards layout and styles
+[33m72718c8[m Add publication stuff
+[33mdce62c0[m Update description of personal experience
+[33m172d8ca[m Added PROTEUS mention
+[33m21e7ffd[m Fixed weird text bio.html
+[33m070e311[m revert to in-line smaller emojis
+[33mdd96565[m fixing nav bar emojis
+[33m5d2f3be[m Update index.html
+[33m6c87348[m Update index.html
+[33m84077f0[m Fixed text changes
+[33m8245b5a[m Thicker nav bar
+[33m800c4b3[m fixed sun in nav bar
+[33m515aa6b[m right_spaced_nav_bar.html
+[33mb1159eb[m Update index.html
+[33mcac21e6[m Update index.html
+[33m5f79d2b[m Update index.html
+[33m364e727[m Update index.html
+[33m78e31a9[m Update index.html
+[33m67c004b[m Update index.html
+[33m0fff919[m Update index.html
+[33m64fed04[m Update index.html
+[33m5b7090f[m Update index.html
+[33mbaa25bb[m Update index.html
+[33m2fd5a4b[m Update index.html
+[33md5441a1[m Update index.html
+[33m795d7c5[m Update index.html
+[33m9eacfd0[m Update index.html
+[33mfe63ae7[m Update index.html
+[33m05d1868[m Update index.html
+[33m415d787[m Update index.html
+[33mbfebbeb[m Update index.html
+[33mdfc00a8[m Update index.html
+[33m8585553[m Update index.html
+[33m11584ba[m Update index.html
+[33ma98f5d6[m Update index.html
+[33mc3ee07b[m Update index.html
+[33m1bb1ebf[m Update index.html
+[33m6eadd70[m Update index.html
+[33mbaa56a7[m Update index.html
+[33m484c92e[m Update index.html
+[33m3ad30cf[m Update index.html
+[33m53cdb51[m Update index.html
+[33m89b061c[m Update index.html
+[33mda25517[m Update index.html
+[33m30f89a2[m Update index.html
+[33m7758217[m Update index.html
+[33m4bb104e[m Update index.html
+[33m3bc4431[m Update index.html
+[33m51a1d66[m Update index.html
+[33m95ad721[m Update index.html
+[33maec023f[m Update index.html
+[33m38051b3[m Update index.html
+[33m85ecd6a[m Update index.html
+[33m37898d0[m Update index.html
+[33mbcce12c[m Update index.html
+[33mb284e10[m Update index.html
+[33m18386ac[m Update index.html
+[33m1554feb[m Update index.html
+[33m7a6d8d2[m Update index.html
+[33m72ab4d7[m Update index.html
+[33m897ba66[m Update index.html
+[33m736ec69[m Update index.html
+[33ma7df878[m Update index.html
+[33mb5027a2[m Update index.html
+[33m4861e80[m Update index.html
+[33m54faa24[m Update index.html
+[33ma3309f9[m Update index.html
+[33mf2865bc[m Update index.html
+[33mc715d6b[m Update index.html
+[33m1a8e724[m Update index.html
+[33m0f1ca48[m Update index.html
+[33m95fbd91[m Update index.html
+[33md847c0a[m Update index.html
+[33m38ad39c[m Update index.html
+[33mdfb3dc8[m Update index.html
+[33m2987788[m Update index.html
+[33m4224127[m Update index.html
+[33mcfd9be1[m Update index.html
+[33m5b2bbd5[m Add files via upload
+[33m1ff8205[m Update index.html
+[33m87feb57[m Update index.html
+[33m50a993f[m Create index.html
