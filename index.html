@@ -539,12 +539,34 @@ body:not(.dark-theme) .pub-card a {
     <p>Updates coming soon.</p>
   </section>
 
-  <section id="Curriculum Vitae">
-  <h2>CV</h2>
-  <iframe src="ENH_CV_2026.pdf" width="100%" height="900px" style="border: none;">
-    <p>Your browser doesn't support embedded PDFs. 
-    <a href="ENH_CV_2026.pdf" download>Download my CV instead.</a></p>
-  </iframe>
+  <section id="cv">
+  <div style="display: flex; align-items: flex-start; gap: 2.5rem; max-width: 1100px; width: 100%;">
+    
+    <!-- Left: Title + Button -->
+    <div style="min-width: 140px; text-align: left; padding-top: 0.3rem;">
+      <h2 style="margin: 0 0 1.2rem 0;">Curriculum Vitae</h2>
+      <a href="ENH_CV_2026.pdf" download
+         style="display: inline-block; padding: 0.5rem 1.1rem;
+                border: 1.5px solid var(--link-color);
+                color: var(--link-color);
+                border-radius: 6px;
+                font-size: 0.9rem;
+                font-weight: 600;
+                transition: background 0.3s, color 0.3s;">
+        Download PDF
+      </a>
+    </div>
+
+    <!-- Right: Embedded PDF -->
+    <div style="flex: 1;">
+      <iframe src="ENH_CV_2026.pdf" width="100%" height="900px"
+              style="border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; display: block;">
+        <p>Your browser doesn't support embedded PDFs.
+        <a href="ENH_CV_2026.pdf" download>Download instead.</a></p>
+      </iframe>
+    </div>
+
+  </div>
 </section>
 
   <section id="contact">
