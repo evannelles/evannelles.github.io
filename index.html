@@ -71,8 +71,8 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      gap: 30px; /* increased spacing between links */
-      padding: 18px 24px; /* thicker nav bar */
+      gap: 30px;
+      padding: 18px 24px;
       box-sizing: border-box;
     }
 
@@ -81,27 +81,26 @@
       padding-bottom: 2px;
       border-bottom: 2px solid transparent;
       transition: color 0.3s ease, border-bottom 0.3s ease;
-      line-height: 1; /* keeps links aligned vertically */
+      line-height: 1;
     }
 
     nav a:hover {
       border-bottom: 2px solid var(--link-hover);
     }
 
-   nav button {
-  background: none;
-  border: none;
-  font-size: 1em;          /* match nav links */
-  cursor: pointer;
-  color: var(--text-color);
-  padding: 0;              /* remove extra padding */
-  display: flex;
-  align-items: center;      /* vertically centers the icon */
-  justify-content: center;
-  line-height: 1;           /* match nav links */
-  margin-top: -2px;         /* tiny nudge if still slightly low */
-}
-
+    nav button {
+      background: none;
+      border: none;
+      font-size: 1em;
+      cursor: pointer;
+      color: var(--text-color);
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      margin-top: -2px;
+    }
 
     nav button:hover {
       opacity: 1;
@@ -139,9 +138,18 @@
     body:not(.dark-theme) #news,
     body:not(.dark-theme) #cv,
     body:not(.dark-theme) #search,
-    body:not(.dark-theme) #publications{
+    body:not(.dark-theme) #publications {
       background-color: #f9f9f9;
       color: #222;
+    }
+
+    /* ===== Publications & News: top-aligned, minimal padding ===== */
+    #publications,
+    #news {
+      justify-content: flex-start;
+      min-height: unset;
+      padding-top: 80px;
+      padding-bottom: 60px;
     }
 
     /* ===== Home Layout ===== */
@@ -250,74 +258,68 @@
       font-size: 1.1em;
       margin-bottom: 10px;
     }
-/* ===== Publication Cards ===== */
-#publications {
-  justify-content: flex-start;
-  padding-top: 100px;
-  padding-bottom: 10px;
-}
 
-.pub-list.master {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
-}
+    /* ===== Publication Cards ===== */
+    .pub-list.master {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      width: 100%;
+    }
 
-.pub-card {
-  list-style: none;
-}
+    .pub-card {
+      list-style: none;
+    }
 
-.pub-card a {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  border-radius: 14px;
-  overflow: hidden;
+    .pub-card a {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--nav-bg-color);
+      border: 1.5px solid rgba(255,255,255,0.08);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
 
-  background: var(--nav-bg-color);
-  border: 1.5px solid rgba(255,255,255,0.08);
+    body:not(.dark-theme) .pub-card a {
+      border: 1.5px solid rgba(0,0,0,0.08);
+    }
 
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-}
-    
-body:not(.dark-theme) .pub-card a {
-  border: 1.5px solid rgba(0,0,0,0.08);
-}
-  
-.pub-card a:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.22);
-  border-color: var(--link-color);
-}
+    .pub-card a:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.22);
+      border-color: var(--link-color);
+    }
 
-.card-img {
-  height: 220px;
-  overflow: hidden;
-}
+    .card-img {
+      height: 220px;
+      overflow: hidden;
+    }
 
-.card-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
-.card-content {
-  padding: 18px 18px 22px;
-}
-    
-.card-title {
-  font-weight: 600;
-  font-size: 1.05em;
-  line-height: 1.4;
-  margin-bottom: 6px;
-}
+    .card-content {
+      padding: 18px 18px 22px;
+    }
 
-.card-meta {
-  font-size: 0.9em;
-  opacity: 0.75;
-}
+    .card-title {
+      font-weight: 600;
+      font-size: 1.05em;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 0.9em;
+      opacity: 0.75;
+    }
 
     /* ===== Responsive ===== */
     @media (max-width: 900px) {
@@ -339,58 +341,66 @@ body:not(.dark-theme) .pub-card a {
         grid-template-columns: 1fr;
         padding-left: 0;
       }
+
+      .pub-list.master {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
+
     @media (max-width: 600px) {
-  .pub-controls {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
+      .pub-controls {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .pub-list.master {
+        grid-template-columns: 1fr;
+      }
+    }
 
     /* ===== Publication Controls ===== */
-.pub-controls {
-  max-width: 1000px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 35px;
-  flex-wrap: wrap;
-  gap: 15px;
-}
+    .pub-controls {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 35px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
 
-.filter-buttons button {
-  background: none;
-  border: 1.5px solid var(--link-color);
-  color: var(--text-color);
-  padding: 6px 14px;
-  font-size: 0.95em;
-  font-weight: 600;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s, color 0.3s;
-}
+    .filter-buttons button {
+      background: none;
+      border: 1.5px solid var(--link-color);
+      color: var(--text-color);
+      padding: 6px 14px;
+      font-size: 0.95em;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
 
-.filter-buttons button.active,
-.filter-buttons button:hover {
-  background: var(--link-color);
-  color: #111;
-}
+    .filter-buttons button.active,
+    .filter-buttons button:hover {
+      background: var(--link-color);
+      color: #111;
+    }
 
-.sort-box {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.95em;
-}
+    .sort-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95em;
+    }
 
-.sort-box select {
-  padding: 4px 8px;
-  border-radius: 5px;
-  border: 1px solid #aaa;
-  background: var(--bg-color);
-  color: var(--text-color);
-}
+    .sort-box select {
+      padding: 4px 8px;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+      background: var(--bg-color);
+      color: var(--text-color);
+    }
 
   </style>
 </head>
@@ -428,7 +438,7 @@ body:not(.dark-theme) .pub-card a {
       <div class="home-right">
         <h1>Hello!</h1>
         <p>
-          I am a masters student at McMaster University in Hamilton, Canada. My areas of research include exoplanets, mantle-atmosphere coupling, and the origins of life. I am supervised by 
+          I am a masters student at McMaster University in Hamilton, Canada. My areas of research include exoplanets, mantle-atmosphere coupling, and the origins of life. I am supervised by
           <a href="https://experts.mcmaster.ca/people/pudritz" target="_blank" rel="noopener noreferrer">Dr. Ralph Pudritz</a>.
         </p>
         <p>
@@ -469,116 +479,99 @@ body:not(.dark-theme) .pub-card a {
     </div>
   </section>
 
+  <!-- ===== Publications ===== -->
   <section id="publications">
-  <h2>Publications</h2>
+    <h2>Publications</h2>
 
-  <div class="pub-controls">
-    <div class="filter-buttons">
-      <button data-filter="all" class="active">All</button>
-      <button data-filter="article">Articles</button>
-      <button data-filter="paper">Papers</button>
+    <div class="pub-controls">
+      <div class="filter-buttons">
+        <button data-filter="all" class="active">All</button>
+        <button data-filter="article">Articles</button>
+        <button data-filter="paper">Papers</button>
+      </div>
+
+      <div class="sort-box">
+        <label for="sort-select">Sort:</label>
+        <select id="sort-select">
+          <option value="desc">Newest → Oldest</option>
+          <option value="asc">Oldest → Newest</option>
+        </select>
+      </div>
     </div>
 
-    <div class="sort-box">
-      <label for="sort-select">Sort:</label>
-      <select id="sort-select">
-        <option value="desc">Newest → Oldest</option>
-        <option value="asc">Oldest → Newest</option>
-      </select>
-    </div>
-  </div>
+    <ul class="pub-list master">
 
-  <ul class="pub-list master">
+      <li data-type="article" data-date="2026-04-06" class="pub-card">
+        <a href="https://astrobites.org/2026/04/06/admiring-the-atmospheric-egg-shell-of-sub-neptune-toi-270d/"
+           target="_blank" rel="noopener noreferrer">
+          <div class="card-img">
+            <img src="Easter Planets.png" alt="Easter Planets Art">
+          </div>
+          <div class="card-content">
+            <div class="card-title">Admiring the Atmospheric Egg Shell of Sub-Neptune TOI-270d</div>
+            <div class="card-meta">Astrobites · Apr 6th, 2026</div>
+          </div>
+        </a>
+      </li>
 
-    <!-- Article -->
-    <li data-type="article" data-date="2026-04-06" class="pub-card">
-  <a href="https://astrobites.org/2026/04/06/admiring-the-atmospheric-egg-shell-of-sub-neptune-toi-270d/"
-     target="_blank" rel="noopener noreferrer">
+      <li data-type="article" data-date="2026-02-17" class="pub-card">
+        <a href="https://astrobites.org/2026/02/17/hang-on-to-your-water-super-earths/"
+           target="_blank" rel="noopener noreferrer">
+          <div class="card-img">
+            <img src="super-earths.png" alt="Super-Earth illustration">
+          </div>
+          <div class="card-content">
+            <div class="card-title">Hang on to Your Water, Super-Earths!</div>
+            <div class="card-meta">Astrobites · Feb 17, 2026</div>
+          </div>
+        </a>
+      </li>
 
-    <div class="card-img">
-      <img src="Easter Planets.png" alt="Easter Planets Art">
-    </div>
+    </ul>
+  </section>
 
-    <div class="card-content">
-      <div class="card-title">Admiring the Atmospheric Egg Shell of Sub-Neptune TOI-270d</div>
-      <div class="card-meta">Astrobites · Apr 6th, 2026</div>
-    </div>
-
-  </a>
-</li>
-    
-    <!-- Article -->
-    <li data-type="article" data-date="2026-02-17" class="pub-card">
-  <a href="https://astrobites.org/2026/02/17/hang-on-to-your-water-super-earths/"
-     target="_blank" rel="noopener noreferrer">
-
-    <div class="card-img">
-      <img src="super-earths.png" alt="Super-Earth illustration">
-    </div>
-
-    <div class="card-content">
-      <div class="card-title">Hang on to Your Water, Super-Earths!</div>
-      <div class="card-meta">Astrobites · Feb 17, 2026</div>
-    </div>
-
-  </a>
-</li>
-
-
-
-    <!-- Future academic paper example -->
-    <!--
-    <li data-type="paper" data-year="2027">
-      Henderson, E.N., Pudritz, R.E. (2027).
-      <span class="pub-title">Atmosphere–Interior Coupling on Rocky Exoplanets</span>.
-      <em>Astrophysical Journal</em>.
-      <a href="#">[PDF]</a>
-    </li>
-    -->
-
-  </ul>
-</section>
-
-   <section id="news">
+  <!-- ===== News ===== -->
+  <section id="news">
     <h2>News</h2>
     <p>Updates coming soon.</p>
   </section>
 
+  <!-- ===== CV ===== -->
   <section id="cv">
-  <div style="display: flex; align-items: flex-start; gap: 2.5rem; max-width: 1100px; width: 100%;">
-    
-    <!-- Left: Title + Button -->
-    <div style="min-width: 140px; text-align: left; padding-top: 0.3rem;">
-      <h2 style="margin: 0 0 1.2rem 0;">Curriculum Vitae</h2>
-      <a href="ENH_CV_2026.pdf" download
-         style="display: inline-block; padding: 0.5rem 1.1rem;
-                border: 1.5px solid var(--link-color);
-                color: var(--link-color);
-                border-radius: 6px;
-                font-size: 0.9rem;
-                font-weight: 600;
-                transition: background 0.3s, color 0.3s;">
-        Download as PDF
-      </a>
+    <div style="display: flex; align-items: flex-start; gap: 2.5rem; max-width: 1100px; width: 100%;">
+
+      <div style="min-width: 140px; text-align: left; padding-top: 0.3rem;">
+        <h2 style="margin: 0 0 1.2rem 0;">Curriculum Vitae</h2>
+        <a href="ENH_CV_2026.pdf" download
+           style="display: inline-block; padding: 0.5rem 1.1rem;
+                  border: 1.5px solid var(--link-color);
+                  color: var(--link-color);
+                  border-radius: 6px;
+                  font-size: 0.9rem;
+                  font-weight: 600;
+                  transition: background 0.3s, color 0.3s;">
+          Download as PDF
+        </a>
+      </div>
+
+      <div style="flex: 1;">
+        <iframe src="ENH_CV_2026.pdf" width="100%" height="900px"
+                style="border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; display: block;">
+          <p>Your browser doesn't support embedded PDFs.
+          <a href="ENH_CV_2026.pdf" download>Download instead.</a></p>
+        </iframe>
+      </div>
+
     </div>
+  </section>
 
-    <!-- Right: Embedded PDF -->
-    <div style="flex: 1;">
-      <iframe src="ENH_CV_2026.pdf" width="100%" height="900px"
-              style="border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; display: block;">
-        <p>Your browser doesn't support embedded PDFs.
-        <a href="ENH_CV_2026.pdf" download>Download instead.</a></p>
-      </iframe>
-    </div>
-
-  </div>
-</section>
-
+  <!-- ===== Contact ===== -->
   <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:hendee7@mcmaster.ca">hendee7@mcmaster.ca</a></p>
   </section>
 
+  <!-- ===== Search ===== -->
   <section id="search">
     <h2>Search</h2>
     <p>Search functionality coming soon.</p>
@@ -603,53 +596,45 @@ body:not(.dark-theme) .pub-card a {
       toggleBtn.textContent =
         document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
     });
+
     /* ===== Publications Filter & Sort ===== */
+    const filterButtons = document.querySelectorAll('.filter-buttons button');
+    const pubList = document.querySelector('.pub-list.master');
+    const sortSelect = document.getElementById('sort-select');
 
-const filterButtons = document.querySelectorAll('.filter-buttons button');
-const pubList = document.querySelector('.pub-list.master');
-const sortSelect = document.getElementById('sort-select');
+    function applyFilter(filter) {
+      const items = Array.from(pubList.children);
+      items.forEach(item => {
+        const type = item.dataset.type;
+        item.style.display =
+          filter === 'all' || type === filter ? 'block' : 'none';
+      });
+      sortPublications(sortSelect.value);
+    }
 
-function applyFilter(filter) {
-  const items = Array.from(pubList.children);
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        applyFilter(btn.dataset.filter);
+      });
+    });
 
-  items.forEach(item => {
-    const type = item.dataset.type;
-    item.style.display =
-      filter === 'all' || type === filter ? 'block' : 'none';
-  });
+    function sortPublications(order) {
+      const items = Array.from(pubList.children);
+      items.sort((a, b) => {
+        const d1 = new Date(a.dataset.date);
+        const d2 = new Date(b.dataset.date);
+        return order === 'asc' ? d1 - d2 : d2 - d1;
+      });
+      items.forEach(item => pubList.appendChild(item));
+    }
 
-  sortPublications(sortSelect.value);
-}
+    sortSelect.addEventListener('change', () => {
+      sortPublications(sortSelect.value);
+    });
 
-
-filterButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterButtons.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    applyFilter(btn.dataset.filter);
-  });
-});
-
-function sortPublications(order) {
-  const items = Array.from(pubList.children);
-
-  items.sort((a, b) => {
-    const d1 = new Date(a.dataset.date);
-    const d2 = new Date(b.dataset.date);
-    return order === 'asc' ? d1 - d2 : d2 - d1;
-  });
-
-  items.forEach(item => pubList.appendChild(item));
-}
-
-
-sortSelect.addEventListener('change', () => {
-  sortPublications(sortSelect.value);
-});
-
-// default: newest first
-sortPublications('desc');
-
+    sortPublications('desc');
   </script>
 
 </body>
